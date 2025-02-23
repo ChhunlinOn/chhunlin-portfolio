@@ -1,101 +1,190 @@
-import Image from "next/image";
+"use client";
+import React, { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import './globals.css'
+import { faPhone, faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faTelegram, faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const cards = [
+    { id: 1, image: "./picture.png", title: "James Wilson", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris." },
+    { id: 2, image: "./picture.png", title: "Sarah Johnson", description: "Graphic Designer" },
+    { id: 3, image: "./picture.png", title: "Michael Brown", description: "Project Manager" },
+    { id: 4, image: "./picture.png", title: "Emily Davis", description: "Marketing Specialist" },
+    { id: 5, image: "./picture.png", title: "Christopher Garcia", description: "Data Scientist" },
+    { id: 6, image: "./picture.png", title: "Richard Wilson", description: "Product Designer" },
+  ];
+
+  const [expandedDescription, setExpandedDescription] = useState<number | null>(null); // Track which item's description is expanded
+
+  const handleReadMoreToggle = (id: number) => {
+    if (expandedDescription === id) {
+      setExpandedDescription(null); // Collapse description
+    } else {
+      setExpandedDescription(id); // Expand description
+    }
+  };
+  return (
+    <div id="text">
+    <div id="container-home" className="block">
+      <div id="Profile">
+        <img src="null" alt="" />
+      </div>
+      <div id="intro">
+        <h1>Hi! I'm <span className="text-ani" style={{ color: "yellow" }}>Chhunlin</span></h1>
+        <p>I'm a Full Stack Dev</p>
+        <div className="button">
+          <button>My CV</button>
+          <button onClick={() => window.scrollTo({ top: document.getElementById('container-project')?.offsetTop || 0, behavior: 'smooth' })}>
+  Projects
+</button>
+
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </div>
+    </div>
+
+
+    <div id="container-project" className="swiper">
+  <div className="slider-wrapper">
+    <Swiper
+      modules={[Navigation, Pagination]}
+      spaceBetween={30}
+      loop={true}
+      grabCursor={true}
+      pagination={{
+        clickable: true,
+        dynamicBullets: true,
+        renderBullet: (index, className) =>
+          `<span class='${className}' style='background-color: white;'></span>`,
+      }}
+      navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
+      breakpoints={{
+        0: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      }}
+      className="card-list swiper-wrapper"
+    >
+      {cards.map((card) => (
+        <SwiperSlide key={card.id} className="card-item swiper-slide">
+        <img src={card.image} alt={card.title} className="user-image" />
+        <h2 className="user-name text-xl font-bold">{card.title}</h2>
+        <p className={`user-description ${expandedDescription === card.id ? "expanded" : ""}`}>
+          {expandedDescription === card.id
+            ? card.description
+            : `${card.description.substring(0, 100)}...`}
+        </p>
+        <button 
+          className="readmore-button text-blue-500 mt-2"
+          onClick={() => handleReadMoreToggle(card.id)}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          {expandedDescription === card.id ? "Read Less" : "Read More"}
+        </button>
+      </SwiperSlide>
+         
+      ))}
+    </Swiper>
+    <div className="swiper-pagination"></div>
+    <div className="swiper-slide-button swiper-button-prev"></div>
+    <div className="swiper-slide-button swiper-button-next"></div>
+  </div>
+</div>
+
+
+
+<div id="container-experience" className="experience-container">
+  <h1 className="skill-heading">Skill Experience</h1>
+  
+  <div className="skills-items">
+    <div className="skill-item blue-box-shadow">
+      <img src="./picture.png" alt="JavaScript" className="skill-image" />
+    </div>
+    <div className="skill-item red-box-shadow">
+      <img src="./picture.png" alt="CSS" className="skill-image" />
+    </div>
+    <div className="skill-item blue-box-shadow">
+      <img src="./picture.png" alt="Python" className="skill-image" />
+    </div>
+    <div className="skill-item red-box-shadow">
+      <img src="./picture.png" alt="JavaScript" className="skill-image" />
+    </div>
+    <div className="skill-item blue-box-shadow">
+      <img src="./picture.png" alt="CSS" className="skill-image" />
+    </div>
+    <div className="skill-item  red-box-shadow">
+      <img src="./picture.png" alt="Python" className="skill-image" />
+    </div>
+
+    <div className="skill-item blue-box-shadow">
+      <img src="./picture.png" alt="JavaScript" className="skill-image" />
+    </div>
+    <div className="skill-item red-box-shadow">
+      <img src="./picture.png" alt="CSS" className="skill-image" />
+    </div>
+    <div className="skill-item  blue-box-shadow">
+      <img src="./picture.png" alt="Python" className="skill-image" />
+    </div>
+    <div className="skill-item red-box-shadow">
+      <img src="./picture.png" alt="JavaScript" className="skill-image" />
+    </div>
+    <div className="skill-item  blue-box-shadow">
+      <img src="./picture.png" alt="CSS" className="skill-image" />
+    </div>
+    <div className="skill-item red-box-shadow">
+      <img src="./picture.png" alt="Python" className="skill-image" />
+    </div>
+    
+    {/* Add more skill items as needed */}
+  </div>
+</div>
+
+{/* <div id="contact"> */}
+  <div id="contact" className="container">
+    <div className="form-container">
+      <div className="left-container">
+        <div className="left-inner-container">
+          <h2>Let's Chat</h2>
+          <p>Whether you have a question, want to start a project, or simply want to connect.</p>
+          <br />
+          <p>Feel free to send me a message in the contact form</p>
+        </div>
+      </div>
+      <div className="right-container">
+        <div className="right-inner-container">
+          <form action="#">
+            <h2 className="lg-view">Contact</h2>
+            <h2 className="sm-view">Let's Chat</h2>
+            <p>* Required</p>
+            <div className="social-container">
+              <a href="#" className="social">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" className="social">
+                <i className="fab fa-google-plus-g"></i>
+              </a>
+              <a href="#" className="social">
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+            <input type="text" placeholder="Name *" required />
+            <input type="email" placeholder="Email *" required />
+            <input type="text" placeholder="Company" />
+            <input type="tel" placeholder="Phone" />
+            <textarea rows="4" placeholder="Message"></textarea>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{/* </div> */}
+
+
     </div>
   );
 }
