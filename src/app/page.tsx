@@ -17,7 +17,7 @@ export default function Home() {
     { id: 3, image: "./picture.png", title: "Michael Brown", description: "Project Manager" },
     { id: 4, image: "./picture.png", title: "Emily Davis", description: "Marketing Specialist" },
     { id: 5, image: "./picture.png", title: "Christopher Garcia", description: "Data Scientist" },
-    { id: 6, image: "./picture.png", title: "Richard Wilson", description: "Product Designer" },
+    { id: 6, image: "./profilecopy.jpg", title: "Richard Wilson", description: "Product Designer" },
   ];
 
   const [expandedDescription, setExpandedDescription] = useState<number | null>(null); // Track which item's description is expanded
@@ -33,7 +33,7 @@ export default function Home() {
     <div id="text">
     <div id="container-home" className="block">
       <div id="Profile">
-        <img src="null" alt="" />
+        <img src="./profilecopy.jpg" alt="" />
       </div>
       <div id="intro">
         <h1>Hi! I'm <span className="text-ani" style={{ color: "yellow" }}>Chhunlin</span></h1>
@@ -102,41 +102,41 @@ export default function Home() {
   
   <div className="skills-items">
     <div className="skill-item blue-box-shadow">
-      <img src="./picture.png" alt="JavaScript" className="skill-image" />
+      <img src="./Notion-Logo.png" alt="JavaScript" className="skill-image" />
     </div>
     <div className="skill-item red-box-shadow">
-      <img src="./picture.png" alt="CSS" className="skill-image" />
+      <img src="./postman-icon.png" alt="CSS" className="skill-image" />
     </div>
     <div className="skill-item blue-box-shadow">
-      <img src="./picture.png" alt="Python" className="skill-image" />
+      <img src="./MySQL-Logo.wine.png" alt="Python" className="skill-image" />
     </div>
     <div className="skill-item red-box-shadow">
-      <img src="./picture.png" alt="JavaScript" className="skill-image" />
+      <img src="./pgadmin-4-logo.png" alt="JavaScript" className="skill-image" />
     </div>
     <div className="skill-item blue-box-shadow">
-      <img src="./picture.png" alt="CSS" className="skill-image" />
+      <img src="./React.webp" alt="CSS" className="skill-image" />
     </div>
-    <div className="skill-item  red-box-shadow">
-      <img src="./picture.png" alt="Python" className="skill-image" />
+    <div className="skill-item  red-box-shadow bg-white">
+      <img src="./nextjs-icon-1024x1024-5et230l7.png" alt="Python" className="skill-image" />
     </div>
 
     <div className="skill-item blue-box-shadow">
-      <img src="./picture.png" alt="JavaScript" className="skill-image" />
+      <img src="./d8d635fbfcd76e2314ebb60e437d4839.png" alt="JavaScript" className="skill-image" />
     </div>
     <div className="skill-item red-box-shadow">
-      <img src="./picture.png" alt="CSS" className="skill-image" />
+      <img src="./HTML5_Badge_512.png" alt="CSS" className="skill-image" />
     </div>
     <div className="skill-item  blue-box-shadow">
-      <img src="./picture.png" alt="Python" className="skill-image" />
+      <img src="./javascript-logo-javascript-icon-transparent-free-png.webp" alt="Python" className="skill-image" />
     </div>
     <div className="skill-item red-box-shadow">
-      <img src="./picture.png" alt="JavaScript" className="skill-image" />
+      <img src="./GitHub-Logo.svg" alt="JavaScript" className="skill-image bg-white" />
     </div>
     <div className="skill-item  blue-box-shadow">
-      <img src="./picture.png" alt="CSS" className="skill-image" />
+      <img src="./Tailwind_CSS_Logo.svg.png" alt="CSS" className="skill-image" />
     </div>
     <div className="skill-item red-box-shadow">
-      <img src="./picture.png" alt="Python" className="skill-image" />
+      <img src="./pngwing.com.png" alt="Python" className="skill-image" />
     </div>
     
     {/* Add more skill items as needed */}
@@ -157,20 +157,7 @@ export default function Home() {
       <div className="right-container">
         <div className="right-inner-container">
           <form action="#">
-            <h2 className="lg-view">Contact</h2>
-            <h2 className="sm-view">Let's Chat</h2>
-            <p>* Required</p>
-            <div className="social-container">
-              <a href="#" className="social">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" className="social">
-                <i className="fab fa-google-plus-g"></i>
-              </a>
-              <a href="#" className="social">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-            </div>
+            <h2 className="sm-view font-bold">Contact</h2>
             <input type="text" placeholder="Name *" required />
             <input type="email" placeholder="Email *" required />
             <input type="text" placeholder="Company" />
