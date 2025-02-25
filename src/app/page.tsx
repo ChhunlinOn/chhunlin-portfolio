@@ -6,13 +6,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import './globals.css'
-import { faPhone, faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import { faTelegram, faDiscord } from "@fortawesome/free-brands-svg-icons";
+// import { faPhone, faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+// import { faTelegram, faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 export default function Home() {
 
   const cards = [
-    { id: 1, image: "./picture.png", title: "James Wilson", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris." },
+    { id: 1, image: "./ksh.png", title: "KSH System", description: "KSH is an NGO that support disability people and non profit. I have build a system for them to track student activity ervery day, store information of disability and store report data every day." },
     { id: 2, image: "./picture.png", title: "Sarah Johnson", description: "Graphic Designer" },
     { id: 3, image: "./picture.png", title: "Michael Brown", description: "Project Manager" },
     { id: 4, image: "./picture.png", title: "Emily Davis", description: "Marketing Specialist" },

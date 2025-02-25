@@ -371,17 +371,20 @@ body {
 .readmore-button {
   font-size: 1rem;
   padding: 8px 20px;
-  color: #fff;
+  color: black;
+  font-weight: bolder;
   border-radius: 6px;
   font-weight: 500;
   cursor: pointer;
-  background: #4658ff;
+  background: white;
   border: none;
   transition: 0.2s ease;
+  box-shadow: 0 0 15px rgba(243, 243, 243, 0.8), 0 0 30px rgba(255, 255, 254, 0.6);
 }
 
 .readmore-button:hover {
-  background: #3242d1;
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.9), 0 0 40px rgba(255, 165, 0, 0.7);
+  background: yellow;
 }
 .card-list .card-item {
   height: auto;
@@ -665,7 +668,7 @@ h2 {
 /* Left Container Styles */
 .left-container {
   flex: 1;
-  background-color: #00000093;
+  background-color: #00000000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -686,7 +689,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0000005e;
+  background-color: #00000000;
   padding: 20px;
   height: auto;
   max-width: 50%; /* Same width constraint as left-container */
@@ -715,19 +718,31 @@ textarea:focus {
   outline: 1px solid #00b4cf;
 }
 
-/* Button Styles */
-button {
+.right-inner-container form input{
   border-radius: 20px;
-  border: 1px solid #00b4cf;
-  background-color: #00b4cf;
-  color: #fff;
-  font-size: 12px;
+   background: none;
+   border: solid 1px white;
+}
+.right-inner-container form textarea{
+  border-radius: 20px;
+  background: none;
+  border: solid 1px white;
+}
+
+/* Button Styles */
+.right-inner-container form button {
+  border-radius: 20px;
+  /* border: 1px solid #00b4cf; */
+  background-color: white;
+  color: black;
   font-weight: bold;
+  font-size: 12px;
   padding: 12px 45px;
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
   cursor: pointer;
+  box-shadow: 0 0 15px rgba(243, 243, 243, 0.8), 0 0 30px rgba(255, 255, 254, 0.6);
 }
 
 button:hover {
@@ -769,7 +784,16 @@ button:hover {
     width: 100%; /* Take full width */
     height: 100%; /* Take full height */
   }
-
+  .right-inner-container form input{
+    border-radius: 20px;
+     background: none;
+     border: solid 1px white;
+  }
+  .right-inner-container form textarea{
+    border-radius: 20px;
+    background: none;
+    border: solid 1px white;
+ }
   h2 {
     font-size: 1.5rem;
   }
