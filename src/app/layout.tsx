@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import {useRouter } from "next/navigation";
 import "./globals.css";
 import ParticlesBackground from "./component/Particle";
 import "font-awesome/css/font-awesome.min.css"; // Import Font Awesome globally
