@@ -6,18 +6,19 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import './globals.css'
+import { url } from "inspector";
 // import { faPhone, faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 // import { faTelegram, faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 export default function Home() {
 
   const cards = [
-    { id: 1, image: "./ksh.png", title: "KSH System", description: "KSH is an NGO that support disability people and non profit. I have build a system for them to track student activity ervery day, store information of disability and store report data every day." },
-    { id: 2, image: "./picture.png", title: "Sarah Johnson", description: "Graphic Designer" },
-    { id: 3, image: "./picture.png", title: "Michael Brown", description: "Project Manager" },
-    { id: 4, image: "./picture.png", title: "Emily Davis", description: "Marketing Specialist" },
-    { id: 5, image: "./picture.png", title: "Christopher Garcia", description: "Data Scientist" },
-    { id: 6, image: "./profilecopy.jpg", title: "Richard Wilson", description: "Product Designer" },
+    { id: 1, image: "./ksh.jpg", title: "KSH System", description: "KSH is an NGO that support disability people and non profit. I have build a system for them to track student activity ervery day, store information of disability and store report data every day.", url:"https://digital.ksh.thewmad.info" },
+    { id: 2, image: "./Survey.png", title: "Survey Form", description: "Survey Form is a website to suvey the new student to know their commitment that want to study in WMAD(Web & Mobile App Development).", url: "https://chhunlinon.github.io/survey-form/" },
+    { id: 3, image: "./AI.png", title: "AI-Roadmap", description: "AI-Roadmap is a website where users will allow to input their learning goals, and it will generate a roadmap with detailed milestones." },
+    { id: 4, image: "./mart-management.png", title: "Mart Management", description: "Develop the back-end of a Mart Management System to handle purchases, sales, inventory, stock alerts, expiration notifications, customer loyalty points, and user role management." },
+    { id: 5, image: "./payment.png", title: "Payment Process", description: "The objective of this project is to design and implement an efficient online payment system for an e-commerce company. This system will streamline the payment process, ensuring faster transactions and enhanced security." },
+    { id: 6, image: "./telegram.webp", title: "Telegram Bot", description: "This project focuses on developing a Telegram bot to streamline membership registration for The Hulk Gym's upcoming grand opening. The bot will allow potential members to easily check prices, view promotions, and access a free 7-day trial coupon." },
   ];
 
   const [expandedDescription, setExpandedDescription] = useState<number | null>(null); // Track which item's description is expanded
@@ -74,6 +75,7 @@ export default function Home() {
         <SwiperSlide key={card.id} className="card-item swiper-slide">
         <img src={card.image} alt={card.title} className="user-image" />
         <h2 className="user-name text-xl font-bold">{card.title}</h2>
+        {card.url && <a href={card.url} className="text-blue-500 underline">Demo</a>}
         <p className={`user-description ${expandedDescription === card.id ? "expanded" : ""}`}>
           {expandedDescription === card.id
             ? card.description
@@ -156,13 +158,12 @@ export default function Home() {
       </div>
       <div className="right-container">
         <div className="right-inner-container">
-          <form action="#">
+          <form action="https://api.web3forms.com/submit" method="POST">
             <h2 className="sm-view font-bold">Contact</h2>
-            <input type="text" placeholder="Name *" required />
-            <input type="email" placeholder="Email *" required />
-            <input type="text" placeholder="Company" />
-            <input type="tel" placeholder="Phone" />
-            <textarea rows="4" placeholder="Message"></textarea>
+            <input type="hidden" name="access_key" value="d799818d-8e90-4971-aef7-207d9a5e8379"></input>
+            <input name="name" type="text" placeholder="Name *" required />
+            <input name="email" type="email" placeholder="Email *" required />
+            <textarea name="message" rows="7" placeholder="Message"></textarea>
             <button type="submit">Submit</button>
           </form>
         </div>

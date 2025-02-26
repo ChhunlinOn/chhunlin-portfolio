@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import "./globals.css";
 import ParticlesBackground from "./component/Particle";
 import "font-awesome/css/font-awesome.min.css"; // Import Font Awesome globally
-
+import { FaFacebook, FaTelegram, FaLinkedin, FaGithub, FaDiscord } from "react-icons/fa";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -98,49 +98,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
 
         <main>{children}</main>
-        <footer className="footer-container">
-  <div className="footer-content">
-    <div className="flex items-center space-x-4">
-      {/* Address Icon */}
-      <div className="footer-address">
-        <i className="fas fa-map-marker-alt footer-icon"></i>
-        <span>Your Address Here</span>
+        <footer>
+        <div className="px-4 py-6 border-t-2 dark:bg-gray-700 md:flex md:items-center md:justify-between sm:justify-center">
+        <p className="text-sm">&copy; 2025 On Chhunlin Portfolio. Start new year, new life.</p>
+        <div className="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
+          <a href="https://www.facebook.com/share/195rut6Pdb" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+            <FaFacebook size={24} />
+          </a>
+          <a href="https://t.me/chhunlinon" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+            <FaTelegram size={24} />
+          </a>
+          <a href="https://www.linkedin.com/in/chhunlin-on-893996341?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BEpuSwY9ZTcyyQpSfccFN7w%3D%3D" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+            <FaLinkedin size={24} />
+          </a>
+          <a href="https://discordapp.com/users/1192629206941708390" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+            <FaDiscord size={24} />
+          </a>
+          <a href="https://github.com/ChhunlinOn" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+            <FaGithub size={24} />
+          </a>
+        </div>
       </div>
-      {/* Phone Icon */}
-      <div className="footer-phone">
-        <i className="fas fa-phone-alt footer-icon"></i>
-        <span>(123) 456-7890</span>
-      </div>
-    </div>
+    </footer>
 
-    <div className="flex items-center">
-      {/* Discord Icon */}
-      <a
-        href="https://discord.com/your-discord-link"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Discord"
-        className="footer-link"
-      >
-        <i className="fab fa-discord"></i>
-      </a>
-      {/* Telegram Icon */}
-      <a
-        href="https://t.me/your-telegram-link"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Telegram"
-        className="footer-link"
-      >
-        <i className="fab fa-telegram-plane"></i>
-      </a>
-    </div>
-  </div>
-
-  <div className="footer-text">
-    <p>&copy; 2025 Your Company Name. All rights reserved.</p>
-  </div>
-</footer>
 
       </body>
     </html>
