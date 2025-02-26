@@ -15,7 +15,7 @@ const ParticlesBackground: React.FC = () => {
       options={{
         fullScreen: { enable: true }, // Cover entire screen
         particles: {
-          number: { value: 80, density: { enable: true, area: 800 } },
+          number: { value: 50, density: { enable: true, area: 800 } },
           shape: { type: "square" },
           opacity: { value: 0.6 },
           size: { value: 3 },
