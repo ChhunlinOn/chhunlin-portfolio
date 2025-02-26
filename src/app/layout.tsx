@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const [activeMenu, setActiveMenu] = useState<string>("Home");
 
   const router = useRouter();
-  const pathname = usePathname();
+  // const pathname = usePathname();
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 

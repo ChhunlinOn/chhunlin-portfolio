@@ -1,12 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import './globals.css'
-import { url } from "inspector";
+// import { url } from "inspector";
 // import { faPhone, faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 // import { faTelegram, faDiscord } from "@fortawesome/free-brands-svg-icons";
 
@@ -60,7 +60,7 @@ export default function Home() {
       pagination={{
         clickable: true,
         dynamicBullets: true,
-        renderBullet: (index, className) =>
+        renderBullet: (className) =>
           `<span class='${className}' style='background-color: white;'></span>`,
       }}
       navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
@@ -163,7 +163,7 @@ export default function Home() {
             <input type="hidden" name="access_key" value="d799818d-8e90-4971-aef7-207d9a5e8379"></input>
             <input name="name" type="text" placeholder="Name *" required />
             <input name="email" type="email" placeholder="Email *" required />
-            <textarea name="message" rows="7" placeholder="Message"></textarea>
+            <textarea name="message" rows={7} placeholder="Message"></textarea>
             <button type="submit">Submit</button>
           </form>
         </div>
