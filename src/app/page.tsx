@@ -42,7 +42,7 @@ export default function Home() {
       <p>I&apos;m a Full Stack Dev</p>
 
         <div className="button">
-          <button>My CV</button>
+          <button onclick="window.location.href='https://docs.google.com/document/d/1CP7QsvurUjYofbx8y7Iu7_iZgjSJpt-c/edit?usp=sharing&rtpof=true&sd=true'">My CV</button>
           <button onClick={() => window.scrollTo({ top: document.getElementById('container-project')?.offsetTop || 0, behavior: 'smooth' })}>
   Projects
 </button>
